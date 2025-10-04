@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         {/* Sidebar */}
         <main className="flex">
           <aside className="hidden md:block w-2/12 h-screen sticky top-0"><SideMenuBar/></aside>
-          <main className="w-10/12 bg-gradient-to-br from-zinc-600 via-zinc-700 to-zinc-800 p-5 h-800">{children}</main>
+          <main className="w-10/12 bg-gradient-to-br from-zinc-600 via-zinc-700 to-zinc-800 p-5">{children}</main>
         </main>
       </body>
     </html>

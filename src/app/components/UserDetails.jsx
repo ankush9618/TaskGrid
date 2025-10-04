@@ -7,9 +7,9 @@ function UserDetails() {
     const [userExists,setUserExists] = useState(false);
     useEffect(() => {
         const userName = localStorage.getItem("taskGridUserName");
-        const userDetails = localStorage.getItem("taskGridUserName");
+        //const userDetails = localStorage.getItem("taskGridUserName");
         setUser(userName || "");
-        setUserExists(userDetails?true:false);
+        setUserExists(userName?true:false);
         document.body.style.overflow = "hidden"; // disable background scroll
     return () => {
       document.body.style.overflow = "auto"; // re-enable on unmount
