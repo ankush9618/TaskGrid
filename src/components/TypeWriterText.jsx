@@ -6,7 +6,7 @@ import { Typewriter } from 'react-simple-typewriter'
 function TypeWriterText() {
   return (
     <div><Typewriter
-            words={['Your tasks, your rules — plan it, track it, crush it. TaskGrid got your back.']}
+            words={['Your tasks, your rules - plan it, track it, crush it. TaskGrid got your back.']}
             loop={1}
             cursor
             cursorStyle="_"
