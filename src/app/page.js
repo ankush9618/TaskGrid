@@ -12,7 +12,7 @@ export default function Home() {
       <div className=" w-full h-full">
         <UserDetails />
         <MobileMenuBar />
-        <div className="w-9/10 mx-auto h-[90vh] mt-35">
+        <div className="w-9/10 mx-auto mt-35">
           <div className='flex justify-center items-center text-4xl gap-2 font-bold mb-10'>
             <FaTasks className='text-red-500 text-5xl' />
             <h1 className='text-yellow-500'>TaskGrid</h1>
