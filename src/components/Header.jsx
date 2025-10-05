@@ -1,12 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import UserContext from "@/context/UserContext";
+import React, { useContext, useEffect, useState } from "react";
 
 function Header() {
-  const [userName, setUserName] = useState("");
+  const {user} = useContext(UserContext)
   const [time,setTime] = useState("Morning")
   useEffect(() => {
-    const storedName = localStorage.getItem("taskGridUserName");
-    if (storedName) setUserName(storedName);
     const currentTime = new Date().getHours();
     if(currentTime<=12){
         setTime("morning");
@@ -19,7 +18,7 @@ function Header() {
 
   return (
     <div className="w-full h-10 items-center text-white font-medium text-end justify-end text-xl sticky top-0 z-20 py-5">
-      <div className="text-yellow-0 mr-5">Hey <span className="text-yellow-500">{userName}!</span> Wishing you a great {time} 😊</div>
+      <div className="mr-5">Hey <span className="text-yellow-500">{user.length>=3 && user}!</span> Wishing you a great {time} 😊</div>
     </div>
   );
 }

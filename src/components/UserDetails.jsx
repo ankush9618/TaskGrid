@@ -1,20 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import UserContext from '@/context/UserContext';
+import React, { useContext, useEffect, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 
 function UserDetails() {
-    const [user,setUser] = useState("");
-    const [userExists,setUserExists] = useState(false);
-    useEffect(() => {
-        const userName = localStorage.getItem("taskGridUserName");
-        //const userDetails = localStorage.getItem("taskGridUserName");Commented
-        setUser(userName || "");
-        setUserExists(userName?true:false);
-        document.body.style.overflow = "hidden"; // disable background scroll
-    return () => {
-      document.body.style.overflow = "auto"; // re-enable on unmount
-    };
-  }, []);
+  let {user,userExists,setUser,setUserExists} = useContext(UserContext);
 
   const handleClick = ()=>{
     if(user.trim().length>=3){
@@ -25,11 +15,17 @@ function UserDetails() {
     }else{
         toast.error("Something went wrong!");
     }
-
   }
-  if(userExists) return null;
+  useEffect(() => {
+        //const userDetails = localStorage.getItem("taskGridUserName");Commented
+        document.body.style.overflow = "hidden"; // disable background scroll
+        return () => {
+            document.body.style.overflow = "auto"; // re-enable on unmount
+        };
+    }, []);
+  // if(userExists) return null;
   return (
-    <div className='w-screen h-screen bg-zinc-800/80 flex justify-center items-center fixed top-0 left-0 user-popup-parent z-50 inset-0'>
+    !userExists && <div className='w-screen h-screen bg-zinc-800/80 flex justify-center items-center fixed top-0 left-0 user-popup-parent z-50 inset-0'>
         <div className='w-80 h-50 bg-zinc-900 flex justify-center items-center rounded-xl shadow-md shadow-zinc-700 text-center p-5'>
             <div>
                 <h3 className='text-center text-yellow-500 text-xl'>Hey Buddy👋!</h3>
