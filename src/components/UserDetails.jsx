@@ -26,7 +26,7 @@ function UserDetails() {
   // if(userExists) return null;
   return (
     !userExists && <div className='w-screen h-screen bg-zinc-800/80 flex justify-center items-center fixed top-0 left-0 user-popup-parent z-50 inset-0'>
-        <div className='w-80 h-50 bg-zinc-900 flex justify-center items-center rounded-xl shadow-md shadow-zinc-700 text-center p-5'>
+        <div className='w-80 h-50 bg-gray-900 flex justify-center items-center rounded-xl shadow-md shadow-zinc-700 text-center p-5'>
             <div>
                 <h3 className='text-center text-yellow-500 text-xl'>Hey Buddy👋!</h3>
                 <input type="text" name="userName" id="userName" className='w-full my-5 border-2 border-white outline-0 py-1 px-2 rounded-md user-name' placeholder='Enter Your Nick Name..' onChange={(e)=>setUser(e.target.value)}/>

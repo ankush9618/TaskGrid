@@ -17,7 +17,7 @@ function Header() {
   }, []);
 
   return (
-    <div className="w-full h-10 items-center text-white font-medium text-end justify-end text-xl sticky top-0 z-20 py-5">
+    <div className="w-full items-center text-white font-medium text-end justify-end text-xl sticky top-0 z-20 py-5">
       <div className="mr-5">Hey <span className="text-yellow-500">{user.length>=3 && user}!</span> Wishing you a great {time} 😊</div>
     </div>
   );

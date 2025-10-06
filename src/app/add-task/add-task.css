@@ -1,0 +1,9 @@
+.gradient-button{
+    background: linear-gradient(267deg, rgb(218, 124, 37) 0.36%, rgb(185, 35, 225) 102.06%);
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* makes it white if background is dark */
+  cursor: pointer;
+  font-size: 20px;
+}
