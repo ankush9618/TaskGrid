@@ -16,9 +16,9 @@ function SideMenuBar() {
             </div></Link>
 
             <section className=' text-start flex flex-col gap-4'>
-                <div className='bg-zinc-700 duration-500 py-2 rounded-md text-center flex justify-center items-center gap-1 font-bold cursor-pointer hover:bg-zinc-600 hover:scale-102'>
+                <Link href="/all-tasks"><div className='bg-zinc-700 duration-500 py-2 rounded-md text-center flex justify-center items-center gap-1 font-bold cursor-pointer hover:bg-zinc-600 hover:scale-102'>
                     All Tasks
-                </div>
+                </div></Link>
                 <div className='bg-zinc-700 duration-500 py-2 rounded-md text-center flex justify-center items-center gap-1 font-bold cursor-pointer hover:bg-zinc-600 hover:scale-102'>
                     Today's Tasks
                 </div>

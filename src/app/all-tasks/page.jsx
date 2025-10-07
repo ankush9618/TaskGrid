@@ -2,7 +2,11 @@ import React from 'react'
 
 function page() {
   return (
-    <div>All Tasks</div>
+    <div>
+      <div>
+        All Taks
+      </div>
+    </div>
   )
 }
 

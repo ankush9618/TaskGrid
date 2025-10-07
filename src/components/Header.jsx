@@ -1,5 +1,5 @@
 "use client";
-import UserContext from "@/context/UserContext";
+import UserContext from "@/context/userContext/UserContext";
 import React, { useContext, useEffect, useState } from "react";
 
 function Header() {
