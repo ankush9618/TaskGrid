@@ -15,3 +15,26 @@ body {
 .user-popup-parent .user-name::placeholder{
   color: rgb(198, 198, 155);
 }
+
+
+.Quill-div{
+  padding-top: 0px !important;
+}
+.ql-editor {
+  background-color: #201e1e;
+  color: #fff; /* text color */
+  min-height: 70vh;
+}
+.ql-editor.ql-blank:before{
+  color: rgb(198, 198, 155) !important;
+}
+
+.ql-toolbar {
+  background-color: #a5a5a1 !important; /* toolbar background */
+  border: 1px solid #99a1af;
+}
+
+.ql-container {
+  background-color: transparent;
+  border: 1px solid #99a1af;
+}

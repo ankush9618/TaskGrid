@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 function Header() {
   const {user} = useContext(UserContext)
-  const [time,setTime] = useState("Morning")
+  const [time,setTime] = useState("morning")
   useEffect(() => {
     const currentTime = new Date().getHours();
     if(currentTime<=12){
