@@ -1,0 +1,15 @@
+.drag_area{
+    width: 220px;
+    height: 120px;
+    opacity: 0.5;
+    color: white;
+    font-size: 16px;
+    border: 1px dotted;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.drag_area_hidden{
+    opacity: 0;
+    height: 0px;
+}

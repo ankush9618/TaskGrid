@@ -38,7 +38,7 @@ function page() {
     taskDetails.id = Math.floor(Math.random()*900000);
     taskDetails.isCompleted = false;
     //console.log(taskDeatils)
-    if (!taskDetails.task || !taskDetails.description || !taskDetails.eta || !taskDetails.priority) {
+    if (!taskDetails.task || !taskDetails.eta || !taskDetails.priority) {
       toast.error("Please fill all the required details");
       return;
     }

@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import TaskContext from './TaskContext'
 
 function TaskProvider({ children }) {
-    const [tasks, setTasks] = useState();
+    const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
-        const stored = (localStorage.getItem("taskGridTasks") && JSON.parse(localStorage.getItem("taskGridTasks")))||[];
+        let stored = (localStorage.getItem("taskGridTasks") && JSON.parse(localStorage.getItem("taskGridTasks")))||[];
         setTasks(stored);
     }, [])
     useEffect(() => {
