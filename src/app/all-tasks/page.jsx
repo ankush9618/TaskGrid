@@ -5,8 +5,17 @@ import TaskContext from '@/context/taskContext/TaskContext'
 import React, { useContext, useState } from 'react'
 
 function page() {
-  const { tasks } = useContext(TaskContext);
+  const { tasks,setTasks } = useContext(TaskContext);
   const [activecard, setActiveCard] = useState(null);
+  const onDrop = (priority,idx) =>{
+    //console.log(`${activecard} is moving to ${priority} at ${idx} `);
+    if(activecard==null || activecard==undefined) return;
+    const taskToMove = tasks[activecard];
+    //console.log(taskToMove)
+    let updatedTask = tasks.filter((task,index)=>task.id!=taskToMove.id);
+    updatedTask.splice(idx,0,{...taskToMove,priority:priority});
+    setTasks(updatedTask)
+  }
   return (
     <div>
       <div>
@@ -15,14 +24,14 @@ function page() {
           <section className="prirority1 text-2xl text-red-500">
             Prirority - P1
             <div className='mt-5'>
-              <DragArea/>
+              <DragArea onDrop={()=>onDrop(1,0)}/>
               {
                 tasks && tasks.map((task, idx) => {
                   return (
                     task.priority == "1" &&
                     <div key={task.id}>
                       <TaskCard  idx={idx} task={task} priority="p1" setActiveCard={setActiveCard} />
-                      <DragArea/>
+                      <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
                 })
@@ -32,14 +41,14 @@ function page() {
           <section className="prirority2 text-2xl text-red-300">
             Prirority - P2
             <div className='mt-5'>
-              <DragArea/>
+              <DragArea onDrop={()=>onDrop(2,0)}/>
               {
                 tasks && tasks.map((task, idx) => {
                   return (
                     task.priority == "2" &&
                     <div key={task.id}>
                       <TaskCard  idx={idx} task={task} priority="p2" setActiveCard={setActiveCard} />
-                      <DragArea/>
+                      <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
                 })
@@ -49,14 +58,14 @@ function page() {
           <section className="prirority3 text-2xl text-yellow-300">
             Prirority - P3
             <div className='mt-5'>
-              <DragArea/>
+              <DragArea onDrop={()=>onDrop(3,0)}/>
               {
                 tasks && tasks.map((task, idx) => {
                   return (
                     task.priority == "3" &&
                     <div key={task.id}>
                       <TaskCard  idx={idx} task={task} priority="p3" setActiveCard={setActiveCard} />
-                      <DragArea/>
+                      <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
                 })
@@ -66,14 +75,14 @@ function page() {
           <section className="prirority4 text-2xl text-green-300">
             Prirority - P4
             <div className='mt-5'>
-              <DragArea/>
+              <DragArea onDrop={()=>onDrop(4,0)}/>
               {
                 tasks && tasks.map((task, idx) => {
                   return (
                     task.priority == "4" &&
                     <div key={task.id}>
                       <TaskCard  idx={idx} task={task} priority="p4" setActiveCard={setActiveCard} />
-                      <DragArea/>
+                      <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
                 })
@@ -83,14 +92,14 @@ function page() {
           <section className="prirority5 text-2xl text-green-500">
             Prirority - P5
             <div className='mt-5'>
-              <DragArea/>
+              <DragArea onDrop={()=>onDrop(5,0)}/>
               {
                 tasks && tasks.map((task, idx) => {
                   return (
                     task.priority == "5" &&
                     <div key={task.id}>
                       <TaskCard  idx={idx} task={task} priority="p5" setActiveCard={setActiveCard} />
-                      <DragArea/>
+                      <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
                 })
