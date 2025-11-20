@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Comic+Relief:wght@400;700&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
 @import "tailwindcss";
+
 
 :root {
   --background: #171717;
@@ -9,7 +11,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Comic Relief",Arial, Helvetica, sans-serif;
 }
 
 .user-popup-parent .user-name::placeholder{

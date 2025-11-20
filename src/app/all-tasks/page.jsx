@@ -3,6 +3,7 @@ import DragArea from '@/components/drag-area/DragArea';
 import TaskCard from '@/components/TaskCard';
 import TaskContext from '@/context/taskContext/TaskContext'
 import React, { useContext, useState } from 'react'
+import { toast } from 'react-toastify';
 
 function page() {
   const { tasks,setTasks } = useContext(TaskContext);
@@ -16,10 +17,17 @@ function page() {
     updatedTask.splice(idx,0,{...taskToMove,priority:priority});
     setTasks(updatedTask)
   }
+
+  const handleDelete = (id)=>{
+    if(!id) return;
+    let updatedTask = tasks.filter((task)=>task.id!=id);
+    setTasks(updatedTask);
+    toast.error("Task Deleted Successfully.")
+  }
   return (
     <div>
       <div>
-        <h2 className='text-3xl text-yellow-500 underline mb-10'>All Tasks{activecard}</h2>
+        <h2 className='text-3xl text-yellow-500 underline mb-10'>All Tasks</h2>
         <div className='flex justify-center gap-8 font-bold'>
           <section className="prirority1 text-2xl text-red-500">
             Prirority - P1
@@ -30,7 +38,7 @@ function page() {
                   return (
                     task.priority == "1" &&
                     <div key={task.id}>
-                      <TaskCard  idx={idx} task={task} priority="p1" setActiveCard={setActiveCard} />
+                      <TaskCard  idx={idx} task={task} priority="p1" setActiveCard={setActiveCard} handleDelete={handleDelete}/>
                       <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
@@ -47,7 +55,7 @@ function page() {
                   return (
                     task.priority == "2" &&
                     <div key={task.id}>
-                      <TaskCard  idx={idx} task={task} priority="p2" setActiveCard={setActiveCard} />
+                      <TaskCard  idx={idx} task={task} priority="p2" setActiveCard={setActiveCard} handleDelete={handleDelete}/>
                       <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
@@ -64,7 +72,7 @@ function page() {
                   return (
                     task.priority == "3" &&
                     <div key={task.id}>
-                      <TaskCard  idx={idx} task={task} priority="p3" setActiveCard={setActiveCard} />
+                      <TaskCard  idx={idx} task={task} priority="p3" setActiveCard={setActiveCard} handleDelete={handleDelete}/>
                       <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
@@ -81,7 +89,7 @@ function page() {
                   return (
                     task.priority == "4" &&
                     <div key={task.id}>
-                      <TaskCard  idx={idx} task={task} priority="p4" setActiveCard={setActiveCard} />
+                      <TaskCard  idx={idx} task={task} priority="p4" setActiveCard={setActiveCard} handleDelete={handleDelete}/>
                       <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
@@ -98,7 +106,7 @@ function page() {
                   return (
                     task.priority == "5" &&
                     <div key={task.id}>
-                      <TaskCard  idx={idx} task={task} priority="p5" setActiveCard={setActiveCard} />
+                      <TaskCard  idx={idx} task={task} priority="p5" setActiveCard={setActiveCard} handleDelete={handleDelete}/>
                       <DragArea onDrop={()=>onDrop(task.priority,idx+1)}/>
                     </div>
                   )
