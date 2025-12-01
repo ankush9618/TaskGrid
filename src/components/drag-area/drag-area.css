@@ -4,9 +4,10 @@
     opacity: 0.5;
     color: white;
     font-size: 16px;
-    border: 1px dotted;
+    border: 1.2px dotted;
     margin-bottom: 20px;
     padding: 10px;
+    border-radius:5px;
 }
 
 .drag_area_hidden{

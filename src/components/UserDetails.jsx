@@ -2,6 +2,7 @@
 import UserContext from '@/context/userContext/UserContext';
 import React, { useContext, useEffect, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
+import {motion} from 'motion/react'
 
 function UserDetails() {
   let {user,userExists,setUser,setUserExists} = useContext(UserContext);
@@ -11,7 +12,7 @@ function UserDetails() {
         localStorage.setItem("taskGridUserName",user);
         setUserExists(true);
         toast.success("TaskGrid got you! 😎");
-        document.body.style.overflow = "auto"; 
+        //document.body.style.overflow = "auto"; 
     }else{
         toast.error("Something went wrong!");
     }
@@ -26,14 +27,14 @@ function UserDetails() {
   // if(userExists) return null;
   return (
     !userExists && <div className='w-screen h-screen bg-zinc-800/80 backdrop-blur-xs flex justify-center items-center fixed top-0 left-0 user-popup-parent z-500 inset-0'>
-        <div className='w-80 h-50 bg-gray-900 flex justify-center items-center rounded-xl shadow-md shadow-zinc-700 text-center p-5'>
-            <div>
+        <motion.div drag whileDrag={{scale:0.9}} className='w-80 h-50 bg-gray-900 flex justify-center items-center rounded-xl shadow-md shadow-zinc-700 text-center p-5 cursor-move'>
+            <form onSubmit={handleClick}>
                 <h3 className='text-center text-yellow-500 text-xl'>Hey Buddy👋!</h3>
                 <input type="text" name="userName" id="userName" className='w-full my-5 border-2 border-gray-400 focus:border-yellow-50 outline-0 py-1 px-2 rounded-md user-name' placeholder='Enter Your Nick Name..' onChange={(e)=>setUser(e.target.value)} autoComplete='off'/>
                 <button className={` px-5 py-1 rounded-md duration-700 ${user.length<3 ? "bg-gray-400":"bg-blue-500 cursor-pointer hover:scale-110"}`} disabled={user.length < 3}
-                onClick={handleClick}>Save me</button>
-            </div>
-        </div>
+                >Save me</button>
+            </form>
+        </motion.div>
     </div>
   )
 }

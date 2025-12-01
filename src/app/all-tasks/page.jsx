@@ -4,6 +4,7 @@ import TaskCard from '@/components/TaskCard';
 import TaskContext from '@/context/taskContext/TaskContext'
 import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify';
+import EditTask from './EditTask';
 
 function page() {
   const { tasks,setTasks } = useContext(TaskContext);
@@ -26,6 +27,7 @@ function page() {
   }
   return (
     <div>
+      {/* <EditTask/> */}
       <div>
         <h2 className='text-3xl text-yellow-500 underline mb-10'>All Tasks</h2>
         <div className='flex justify-center gap-8 font-bold'>

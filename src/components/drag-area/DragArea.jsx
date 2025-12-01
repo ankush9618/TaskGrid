@@ -12,7 +12,7 @@ function DragArea({onDrop}) {
             setShowDrag(false);
         }}
         onDragOver={(e=>e.preventDefault())}
-        >Drag your task here..</div>
+        >Drop your task here..</div>
     )
 }
 
